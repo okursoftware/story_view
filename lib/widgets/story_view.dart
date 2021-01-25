@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:story_view/models/header.dart';
 
 import '../controller/story_controller.dart';
 import '../utils.dart';
@@ -32,12 +33,18 @@ class StoryItem {
   /// story item.
   bool shown;
 
-  /// The page content
+  ///
+  /// okursoftware added
+
+  final Header header;
+
+  ///   /// The page content
   final Widget view;
   StoryItem(
     this.view, {
-      this.duration,
-        this.shown = false,
+    this.duration,
+    this.header,
+    this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
   /// Short hand to create text-only page.
@@ -57,6 +64,7 @@ class StoryItem {
     bool roundedTop = false,
     bool roundedBottom = false,
     Duration duration,
+    Header header,
   }) {
     double contrast = ContrastHelper.contrast([
       backgroundColor.red,
@@ -113,6 +121,7 @@ class StoryItem {
     bool shown = false,
     Map<String, dynamic> requestHeaders,
     Duration duration,
+    Header header,
   }) {
     return StoryItem(
       Container(
@@ -150,6 +159,45 @@ class StoryItem {
                         )
                       : SizedBox(),
                 ),
+              ),
+            ),
+            Container(
+              height: header.headerHeight,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black26.withOpacity(0.85)
+                  ],
+                ),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(header.logoUrl),
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    header.mainCategoryName,
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -225,6 +273,7 @@ class StoryItem {
     String caption,
     bool shown = false,
     Map<String, dynamic> requestHeaders,
+    Header header,
   }) {
     return StoryItem(
         Container(
