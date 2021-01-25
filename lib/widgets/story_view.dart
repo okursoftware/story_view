@@ -173,31 +173,34 @@ class StoryItem {
                   ],
                 ),
               ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 32,
-                    width: 32,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(header.logoUrl),
-                        fit: BoxFit.cover,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(header.logoUrl),
+                          fit: BoxFit.cover,
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
                     ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    header.mainCategoryName,
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(
+                      width: 8,
                     ),
-                  ),
-                ],
+                    Text(
+                      header.mainCategoryName,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
@@ -304,7 +307,49 @@ class StoryItem {
                         : SizedBox(),
                   ),
                 ),
-              )
+              ),
+                 Container(
+              height: header.headerHeight,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black26.withOpacity(0.85)
+                  ],
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(header.logoUrl),
+                          fit: BoxFit.cover,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      header.mainCategoryName,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
             ],
           ),
         ),
