@@ -174,7 +174,7 @@ class StoryItem {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
                 child: Row(
                   children: [
                     Container(
@@ -321,7 +321,7 @@ class StoryItem {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                 padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
                 child: Row(
                   children: [
                     Container(
