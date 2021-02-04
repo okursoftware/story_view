@@ -74,7 +74,7 @@ class StoryVideoState extends State<StoryVideo> {
   @override
   void initState() {
     super.initState();
-
+  print("video story initState()");
     widget.storyController.pause();
 
     widget.videoLoader.loadVideo(() {
@@ -83,9 +83,11 @@ class StoryVideoState extends State<StoryVideo> {
             VideoPlayerController.file(widget.videoLoader.videoFile);
 
         playerController.initialize().then((v) {
-          if (mounted)  setState(() {});
-         
-          widget.storyController.play();
+          if (mounted) {
+            setState(() {});
+
+            widget.storyController.play();
+          }
         });
 
         if (widget.storyController != null) {
@@ -147,6 +149,7 @@ class StoryVideoState extends State<StoryVideo> {
 
   @override
   void dispose() {
+    print("video story void dispose() ");
     playerController?.dispose();
     _streamSubscription?.cancel();
     super.dispose();
