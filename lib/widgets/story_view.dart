@@ -116,19 +116,18 @@ class StoryItem {
 
   /// Factory constructor for page images. [controller] should be same instance as
   /// one passed to the `StoryView`
-  factory StoryItem.pageImage({
-    @required String url,
-    @required StoryController controller,
-    Key key,
-    BoxFit imageFit = BoxFit.fitWidth,
-    String caption,
-    bool shown = false,
-    Map<String, dynamic> requestHeaders,
-    Duration duration,
-    Header header,
-    Widget headerWidget,
-    Widget bottomWidget
-  }) {
+  factory StoryItem.pageImage(
+      {@required String url,
+      @required StoryController controller,
+      Key key,
+      BoxFit imageFit = BoxFit.fitWidth,
+      String caption,
+      bool shown = false,
+      Map<String, dynamic> requestHeaders,
+      Duration duration,
+      Header header,
+      Widget headerWidget,
+      Widget bottomWidget}) {
     return StoryItem(
       Container(
         key: key,
@@ -168,22 +167,19 @@ class StoryItem {
               ),
             ),
             Container(
-              height: header.headerHeight,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black26.withOpacity(0.85)
-                  ],
+                height: header.headerHeight,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black26.withOpacity(0.85)
+                    ],
+                  ),
                 ),
-              ),
-              child:   headerWidget
-            ),
-                Positioned(
-              bottom: 0,
-              child: bottomWidget),
+                child: headerWidget),
+            bottomWidget
           ],
         ),
       ),
@@ -248,19 +244,17 @@ class StoryItem {
 
   /// Shorthand for creating page video. [controller] should be same instance as
   /// one passed to the `StoryView`
-  factory StoryItem.pageVideo(
-    String url, {
-    @required StoryController controller,
-    Key key,
-    Duration duration,
-    BoxFit imageFit = BoxFit.fitWidth,
-    String caption,
-    bool shown = false,
-    Map<String, dynamic> requestHeaders,
-    Header header,
-    Widget headerWidget,
-    Widget bottomWidget
-  }) {
+  factory StoryItem.pageVideo(String url,
+      {@required StoryController controller,
+      Key key,
+      Duration duration,
+      BoxFit imageFit = BoxFit.fitWidth,
+      String caption,
+      bool shown = false,
+      Map<String, dynamic> requestHeaders,
+      Header header,
+      Widget headerWidget,
+      Widget bottomWidget}) {
     return StoryItem(
         Container(
           key: key,
@@ -291,23 +285,20 @@ class StoryItem {
                   ),
                 ),
               ),
-                 Container(
-              height: header.headerHeight,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black26.withOpacity(0.85)
-                  ],
-                ),
-              ),
-              child: headerWidget
-            ),
-            Positioned(
-              bottom: 0,
-              child: bottomWidget),
+              Container(
+                  height: header.headerHeight,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                        Colors.transparent,
+                        Colors.black26.withOpacity(0.85)
+                      ],
+                    ),
+                  ),
+                  child: headerWidget),
+              bottomWidget
             ],
           ),
         ),
