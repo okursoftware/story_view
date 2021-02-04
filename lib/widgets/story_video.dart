@@ -114,7 +114,7 @@ class StoryVideoState extends State<StoryVideo> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             this.playerController.play();
-
+            widget.storyController.play();
             return AspectRatio(
               aspectRatio: this.playerController.value.aspectRatio,
               // Use the VideoPlayer widget to display the video.
