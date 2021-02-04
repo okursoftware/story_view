@@ -107,8 +107,7 @@ class StoryVideoState extends State<StoryVideo> {
   }
 
   Widget getContentView() {
-    if (widget.videoLoader.state == LoadState.success &&
-        playerController.value.initialized) {
+ 
       return Center(
           child: FutureBuilder(
         future: _initializeVideoPlayerFuture,
@@ -128,26 +127,7 @@ class StoryVideoState extends State<StoryVideo> {
           }
         },
       ));
-    }
-
-    return widget.videoLoader.state == LoadState.loading
-        ? Center(
-            child: Container(
-              width: 70,
-              height: 70,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                strokeWidth: 3,
-              ),
-            ),
-          )
-        : Center(
-            child: Text(
-            "Media failed to load.",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ));
+    
   }
 
   @override
