@@ -38,6 +38,7 @@ class StoryItem {
 
   final Header header;
   final Widget headerWidget;
+  final Widget bottomWidget;
 
   ///   /// The page content
   final Widget view;
@@ -46,6 +47,7 @@ class StoryItem {
     this.duration,
     this.header,
     this.headerWidget,
+    this.bottomWidget,
     this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
@@ -124,7 +126,8 @@ class StoryItem {
     Map<String, dynamic> requestHeaders,
     Duration duration,
     Header header,
-    Widget headerWidget
+    Widget headerWidget,
+    Widget bottomWidget
   }) {
     return StoryItem(
       Container(
@@ -177,7 +180,10 @@ class StoryItem {
                 ),
               ),
               child:   headerWidget
-            )
+            ),
+                Positioned(
+              bottom: 0,
+              child: bottomWidget),
           ],
         ),
       ),
@@ -252,7 +258,8 @@ class StoryItem {
     bool shown = false,
     Map<String, dynamic> requestHeaders,
     Header header,
-    Widget headerWidget
+    Widget headerWidget,
+    Widget bottomWidget
   }) {
     return StoryItem(
         Container(
@@ -297,7 +304,10 @@ class StoryItem {
                 ),
               ),
               child: headerWidget
-            )
+            ),
+            Positioned(
+              bottom: 0,
+              child: bottomWidget),
             ],
           ),
         ),
