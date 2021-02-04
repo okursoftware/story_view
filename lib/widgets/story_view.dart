@@ -37,6 +37,7 @@ class StoryItem {
   /// okursoftware added
 
   final Header header;
+  final Widget headerWidget;
 
   ///   /// The page content
   final Widget view;
@@ -44,6 +45,7 @@ class StoryItem {
     this.view, {
     this.duration,
     this.header,
+    this.headerWidget,
     this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
@@ -122,6 +124,7 @@ class StoryItem {
     Map<String, dynamic> requestHeaders,
     Duration duration,
     Header header,
+    Widget headerWidget
   }) {
     return StoryItem(
       Container(
@@ -173,35 +176,7 @@ class StoryItem {
                   ],
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 32,
-                      width: 32,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(header.logoUrl),
-                          fit: BoxFit.cover,
-                        ),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      header.mainCategoryName,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child:   headerWidget
             )
           ],
         ),
@@ -277,6 +252,7 @@ class StoryItem {
     bool shown = false,
     Map<String, dynamic> requestHeaders,
     Header header,
+    Widget headerWidget
   }) {
     return StoryItem(
         Container(
@@ -320,35 +296,7 @@ class StoryItem {
                   ],
                 ),
               ),
-              child: Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 32,
-                      width: 32,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(header.logoUrl),
-                          fit: BoxFit.cover,
-                        ),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      header.mainCategoryName,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child: headerWidget
             )
             ],
           ),
