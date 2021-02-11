@@ -713,40 +713,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                     widget.controller.next();
                   }
                 },
-                onVerticalDragStart: widget.onVerticalSwipeComplete == null
-                    ? null
-                    : (details) {
-                        widget.controller.pause();
-                      },
-                onVerticalDragCancel: widget.onVerticalSwipeComplete == null
-                    ? null
-                    : () {
-                        widget.controller.play();
-                      },
-                onVerticalDragUpdate: widget.onVerticalSwipeComplete == null
-                    ? null
-                    : (details) {
-                        if (verticalDragInfo == null) {
-                          verticalDragInfo = VerticalDragInfo();
-                        }
-
-                        verticalDragInfo.update(details.primaryDelta);
-
-                        // TODO: provide callback interface for animation purposes
-                      },
-                onVerticalDragEnd: widget.onVerticalSwipeComplete == null
-                    ? null
-                    : (details) {
-                        widget.controller.play();
-                        // finish up drag cycle
-                        if (!verticalDragInfo.cancel &&
-                            widget.onVerticalSwipeComplete != null) {
-                          widget.onVerticalSwipeComplete(
-                              verticalDragInfo.direction);
-                        }
-
-                        verticalDragInfo = null;
-                      },
+           
               )),
           Align(
             alignment: Alignment.centerLeft,
